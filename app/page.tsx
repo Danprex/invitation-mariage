@@ -76,12 +76,14 @@ export default function Home() {
 
         {/* Titre du message en Terracotta */}
         <h3 className="text-2xl md:text-3xl font-serif italic text-[#C15B3D] mb-6">
-          Cher(e) Invité(e)
+          Alerte mariage !
         </h3>
 
         {/* Paragraphe d'invitation */}
         <p className="max-w-md mx-auto text-stone-600 leading-loose text-sm md:text-base font-light px-4">
-          Vous êtes cordialement invités à la célébration de notre mariage et nous serons ravis de partager ce nouveau chapitre de notre vie avec ceux qui nous sont plus chers.
+          Après des années de tests, on a validé : on se garde.
+Venez fêter ça avec du champagne, du caviar, et surtout vous, notre équipe de proches préférée.
+          PS : Si vous dansez mal, c’est encore mieux.
         </p>
 
       </section>
