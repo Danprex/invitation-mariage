@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: clientEmail,
-        private_key: privateKey.replace(/\\n/g, "\n"),
+        private_key: privateKey.replace(/\\n/g, "\n"), // On s'assure que les retours à la ligne sont gérés
       },
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
@@ -55,6 +55,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: any) {
     console.error("Erreur lors de l'enregistrement RSVP :", error);
+    // On renvoie une erreur détaillée pour le debug
     return NextResponse.json(
       { error: "Erreur lors de l'enregistrement", details: error?.message || error },
       { status: 500 }
