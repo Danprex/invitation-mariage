@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import PassQrCode from "./PassQrCode";
 
@@ -11,97 +10,57 @@ export default function RsvpForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); 
-    
-    // Envoi des données vers notre API
     const response = await fetch('/api/rsvp', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nom: nomInvite,
-        presence: estPresent,
-        message: messageLivreOr
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nom: nomInvite, presence: estPresent, message: messageLivreOr }),
     });
-
-    if (response.ok) {
-      setFormulaireSoumis(true); 
-    } else {
-      alert("Une erreur est survenue, veuillez réessayer.");
-    }
+    if (response.ok) { setFormulaireSoumis(true); } 
+    else { alert("Une erreur est survenue."); }
   };
 
-  // Ce qui s'affiche APRÈS l'envoi du formulaire (Message + QR Code)
   if (formulaireSoumis) {
     return (
-      <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
-        <div className="p-6 text-center bg-green-50 rounded-lg shadow-sm border border-green-100 w-full">
-          <h3 className="text-xl font-semibold text-green-800">Merci pour votre réponse !</h3>
-          <p className="mt-2 text-green-700">Vos informations ont bien été enregistrées.</p>
+      <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto print:gap-0">
+        <div className="print:hidden p-6 text-center bg-[#8A9A86]/10 rounded-lg border border-[#8A9A86]/20 w-full">
+          <h3 className="text-xl font-semibold text-[#4A5346]">Merci pour votre réponse !</h3>
+          <p className="mt-2 text-[#8A9A86]">Vos informations ont bien été enregistrées.</p>
         </div>
         <PassQrCode nomInvite={nomInvite} />
       </div>
     );
   }
 
-  // Ce qui s'affiche AVANT l'envoi du formulaire
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-serif text-center mb-4 text-gray-900">Confirmez votre présence</h2>
-
+    <form onSubmit={handleSubmit} className="print:hidden flex flex-col gap-4 max-w-md mx-auto p-8 bg-[#FDFBF7] rounded-2xl shadow-sm border border-[#F4F1EA]">
+      <h2 className="text-2xl font-serif text-center mb-4 text-[#C15B3D]">Confirmez votre présence</h2>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Votre Prénom et Nom</label>
+        <label className="block text-xs font-bold uppercase tracking-widest text-[#8A9A86] mb-2">Prénom et Nom</label>
         <input 
-          type="text" 
-          required 
-          value={nomInvite} 
-          onChange={(e) => setNomInvite(e.target.value)}
-          className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 outline-none"
-          placeholder="Ex: Jean Dupont"
+          type="text" required value={nomInvite} onChange={(e) => setNomInvite(e.target.value)}
+          className="w-full border border-[#8A9A86]/30 rounded-md p-3 focus:ring-1 focus:ring-[#C15B3D] outline-none bg-white text-stone-800"
+          placeholder="Ex: Jean MOULOUNGUI"
         />
       </div>
-
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Serez-vous présent(e) ?</label>
-        <div className="flex gap-4">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input 
-              type="radio" 
-              name="presence" 
-              checked={estPresent === true}
-              onChange={() => setEstPresent(true)}
-              className="w-4 h-4 text-blue-600"
-            />
-            Oui, avec plaisir !
+        <label className="block text-xs font-bold uppercase tracking-widest text-[#8A9A86] mb-2">Serez-vous présent(e) ?</label>
+        <div className="flex gap-6">
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-stone-600">
+            <input type="radio" checked={estPresent} onChange={() => setEstPresent(true)} className="accent-[#C15B3D]"/> Oui
           </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input 
-              type="radio" 
-              name="presence" 
-              checked={estPresent === false}
-              onChange={() => setEstPresent(false)}
-              className="w-4 h-4 text-blue-600"
-            />
-            Non, malheureusement
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-stone-600">
+            <input type="radio" checked={!estPresent} onChange={() => setEstPresent(false)} className="accent-[#C15B3D]"/> Non
           </label>
         </div>
       </div>
-
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Un petit mot pour les mariés (optionnel)</label>
+        <label className="block text-xs font-bold uppercase tracking-widest text-[#8A9A86] mb-2">Un petit mot (optionnel)</label>
         <textarea 
-          value={messageLivreOr}
-          onChange={(e) => setMessageLivreOr(e.target.value)}
-          className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 outline-none h-24"
-          placeholder="Laissez votre message ici..."
+          value={messageLivreOr} onChange={(e) => setMessageLivreOr(e.target.value)}
+          className="w-full border border-[#8A9A86]/30 rounded-md p-3 focus:ring-1 focus:ring-[#C15B3D] outline-none h-24 bg-white text-stone-800"
         />
       </div>
-
-      <button 
-        type="submit" 
-        className="mt-4 bg-gray-900 hover:bg-black text-white font-medium py-3 px-4 rounded-md transition-colors"
-      >
+      <button type="submit" className="mt-4 bg-[#C15B3D] hover:bg-[#A64B31] text-white font-medium py-3 px-4 rounded-md transition-all shadow-md">
         Envoyer ma réponse
       </button>
     </form>
