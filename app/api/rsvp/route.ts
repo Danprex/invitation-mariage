@@ -22,7 +22,8 @@ export async function POST(req: Request) {
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: clientEmail,
-        private_key: privateKey.replace(/\\n/g, "\n"), // On s'assure que les retours à la ligne sont gérés
+        // Nettoyage extrême : enlève les guillemets accidentels et force les retours à la ligne
+        private_key: privateKey.replace(/"/g, "").replace(/\\n/g, "\n"),
       },
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
