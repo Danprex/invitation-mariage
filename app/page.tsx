@@ -47,13 +47,13 @@ export default function Home() {
 
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-6xl md:text-7xl font-serif text-stone-800 font-light tracking-wide">
-            Sabrina
+            Usher
           </h2>
           <span className="text-5xl md:text-6xl police-mariage text-[#C15B3D]/80 my-2">
             &
           </span>
           <h2 className="text-6xl md:text-7xl font-serif text-stone-800 font-light tracking-wide">
-            Usher
+            Sabrina
           </h2>
         </div>
 
