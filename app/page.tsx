@@ -11,6 +11,7 @@ export default function Home() {
         .police-mariage { font-family: 'Great Vibes', cursive; }
       `}} />
 
+      {/* 1. Section Héro */}
       <section className="print:hidden relative h-screen flex flex-col items-center justify-center">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
@@ -40,6 +41,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 1.5 Section : Noms des mariés & Information Urne */}
       <section className="print:hidden py-24 px-4 bg-[#FDFBF7] text-center flex flex-col items-center">
         <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#8A9A86] mb-10 font-light">
           Bienvenue à notre célébration
@@ -47,13 +49,13 @@ export default function Home() {
 
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-6xl md:text-7xl font-serif text-stone-800 font-light tracking-wide">
-            Usher
+            Sabrina
           </h2>
           <span className="text-5xl md:text-6xl police-mariage text-[#C15B3D]/80 my-2">
             &
           </span>
           <h2 className="text-6xl md:text-7xl font-serif text-stone-800 font-light tracking-wide">
-            Sabrina
+            Usher
           </h2>
         </div>
 
@@ -66,8 +68,15 @@ export default function Home() {
           Venez fêter ça avec du champagne, du caviar, et surtout vous, notre équipe de proches préférée.
           PS : Si vous dansez mal, c’est encore mieux.
         </p>
+
+        {/* AJOUT DE L'INFORMATION SUR L'URNE ICI */}
+        <div className="w-16 h-[1px] bg-[#8A9A86]/30 mx-auto my-8"></div>
+        <p className="max-w-lg mx-auto text-stone-600 leading-relaxed text-sm md:text-base font-medium px-4">
+          Votre présence à Libreville est déjà notre plus beau cadeau. Pour vous éviter tout déplacement encombrant, une urne sera discrètement mise à votre disposition le jour J pour recueillir vos vœux et participations.
+        </p>
       </section>
 
+      {/* 2.5 Section Dress Code */}
       <section className="print:hidden py-16 px-4 bg-[#F4F1EA] text-center">
         <div className="max-w-2xl mx-auto flex flex-col items-center p-8 bg-[#FDFBF7] rounded-2xl shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#F4F1EA]">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-[#8A9A86] mb-4 animate-pulse">
@@ -88,6 +97,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2. Section Détails */}
       <section className="print:hidden py-20 px-4 text-center max-w-3xl mx-auto">
         <h2 className="text-3xl font-serif mb-12 text-[#C15B3D]">Le grand jour</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xl">
@@ -106,19 +116,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3. Section Compte à rebours */}
       <section className="print:hidden py-12 bg-[#FDFBF7] border-y border-[#8A9A86]/20">
         <h2 className="text-center text-xl font-medium text-[#8A9A86] mb-6 uppercase tracking-widest">L'aventure commence dans...</h2>
         <Countdown />
       </section>
 
+      {/* 4. Section Formulaire RSVP */}
       <section className="py-24 px-4 bg-[#F4F1EA] print:py-0 print:bg-transparent">
         <RsvpForm />
       </section>
 
+      {/* 5. Section Livre d'Or */}
       <section className="print:hidden py-20 px-4 bg-[#FDFBF7] border-b border-[#8A9A86]/20">
         <GuestBook />
       </section>
 
+      {/* 6. Section Localisation */}
       <section className="print:hidden py-24 px-4 text-center max-w-4xl mx-auto">
         <h2 className="text-3xl font-serif mb-6 text-[#C15B3D]">Nous rejoindre</h2>
         <p className="mb-10 text-stone-600 max-w-xl mx-auto leading-relaxed">
@@ -138,12 +152,24 @@ export default function Home() {
         </a>
       </section>
 
+      {/* 7. Section Remerciements & Contacts */}
       <footer className="print:hidden py-16 bg-[#4A5346] text-[#FDFBF7]/80 text-center px-4">
         <h3 className="text-3xl font-serif mb-4 text-[#FDFBF7]">Merci</h3>
         <p className="max-w-md mx-auto text-sm tracking-wide">
           Nous avons hâte de célébrer ce moment inoubliable à vos côtés.
         </p>
-        <p className="mt-12 text-xs opacity-60">
+
+        {/* AJOUT DU NUMÉRO DE TÉLÉPHONE ICI */}
+        <div className="border-t border-[#FDFBF7]/20 pt-8 mt-10 max-w-sm mx-auto">
+          <p className="text-xs uppercase tracking-[0.2em] mb-3 opacity-70">
+            Une question ? Apportez votre soutien :
+          </p>
+          <a href="tel:+24100000000" className="text-xl md:text-2xl font-serif text-[#FDFBF7] hover:text-[#C15B3D] transition-colors">
+            +241 00 00 00 00
+          </a>
+        </div>
+
+        <p className="mt-16 text-xs opacity-50">
           © 2026 - Application d'invitation - By danprexstudio
         </p>
       </footer>

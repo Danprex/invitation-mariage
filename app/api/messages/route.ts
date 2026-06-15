@@ -40,8 +40,7 @@ export async function GET() {
 
     if (!rows || rows.length <= 1) {
       // Si la feuille est vide ou ne contient que les entêtes
-      return NextResponse.json([]);
-    }
+      return NextResponse.json([]) 
 
     // Exclure la première ligne (les entêtes Nom, Message, Date)
     const messages = rows.slice(1).map((row) => ({
