@@ -142,7 +142,7 @@ export default function Home() {
       <section className="print:hidden py-24 px-4 text-center max-w-4xl mx-auto">
         <h2 className="text-3xl font-serif mb-6 text-[#C15B3D]">Nous rejoindre</h2>
         <p className="mb-10 text-stone-600 max-w-xl mx-auto leading-relaxed">
-          La cérémonie et la réception auront lieu au domaine. Cliquez sur le bouton ci-dessous pour ouvrir l'itinéraire directement sur votre application GPS.
+          La cérémonie et la réception auront lieu au domaine. Cliquez sur le bouton ci-dessous pour ouvrir l'itinéraire directement sur votre application GPS afin de vous rendre sur les lieux !
         </p>
         <a 
           href="https://maps.app.goo.gl/t2YWViz2aqd92tvP9" 
