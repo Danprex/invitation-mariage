@@ -69,11 +69,22 @@ export default function Home() {
           PS : Si vous dansez mal, c’est encore mieux.
         </p>
 
-        {/* AJOUT DE L'INFORMATION SUR L'URNE ICI */}
-        <div className="w-16 h-[1px] bg-[#8A9A86]/30 mx-auto my-8"></div>
-        <p className="max-w-lg mx-auto text-stone-600 leading-relaxed text-sm md:text-base font-medium px-4">
-          Votre présence à Libreville est déjà notre plus beau cadeau. Pour vous éviter tout déplacement encombrant, une urne sera discrètement mise à votre disposition le jour J pour recueillir vos vœux et participations.
-        </p>
+        {/* NOUVEAU TEXTE POUR L'URNE */}
+        <div className="w-16 h-[1px] bg-[#8A9A86]/30 mx-auto my-10"></div>
+        
+        <div className="max-w-lg mx-auto px-4 bg-white/50 p-6 rounded-2xl border border-[#F4F1EA] shadow-sm">
+          <p className="font-serif text-xl text-[#C15B3D] mb-3">✈️ Alerte logistique ! 📮</p>
+          <p className="text-stone-600 leading-relaxed text-sm md:text-base font-light mb-3">
+            Comme on se marie loin de notre ville natale, on a peur que le camion de déménagement des cadeaux coûte plus cher que la lune de miel 😅
+          </p>
+          <p className="text-stone-600 leading-relaxed text-sm md:text-base font-light mb-5">
+            Du coup on a prévu une urne 💌 sur place pour alléger nos valises.
+          </p>
+          <p className="font-medium text-[#8A9A86] tracking-widest uppercase text-xs">
+            Votre présence = déjà un cadeau XXL
+          </p>
+        </div>
+
       </section>
 
       {/* 2.5 Section Dress Code */}
@@ -159,13 +170,13 @@ export default function Home() {
           Nous avons hâte de célébrer ce moment inoubliable à vos côtés.
         </p>
 
-        {/* AJOUT DU NUMÉRO DE TÉLÉPHONE ICI */}
+        {/* NUMÉRO DE TÉLÉPHONE */}
         <div className="border-t border-[#FDFBF7]/20 pt-8 mt-10 max-w-sm mx-auto">
           <p className="text-xs uppercase tracking-[0.2em] mb-3 opacity-70">
             Une question ? Apportez votre soutien :
           </p>
           <a href="tel:+24100000000" className="text-xl md:text-2xl font-serif text-[#FDFBF7] hover:text-[#C15B3D] transition-colors">
-            +241 62 66 61 21 (Usher) & +241 66 77 18 91 (Sabrina)
+            +241 00 00 00 00
           </a>
         </div>
 
