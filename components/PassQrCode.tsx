@@ -5,12 +5,16 @@ interface PassQrCodeProps {
 }
 
 export default function PassQrCode({ nomInvite }: PassQrCodeProps) {
-  // Génération du QR Code
-  const qrData = encodeURIComponent(`Pass Mariage VIP - ${nomInvite}`);
+  // Le lien actuel de ton site sur Vercel
+  const siteUrl = "https://invitation-mariage-one.vercel.app";
+  
+  // On crée un lien direct vers le site, en incluant le nom de l'invité
+  const qrData = encodeURIComponent(`${siteUrl}?invite=${nomInvite}`);
+  
+  // Génération de l'image du QR Code
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}&color=C15B3D&bgcolor=FDFBF7`;
 
   return (
-    // On ajoute des classes "print:" pour enlever les marges, bordures et ombres sur le PDF
     <div className="mt-8 flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm border border-[#8A9A86]/20 w-full max-w-md mx-auto print:mt-0 print:border-none print:shadow-none print:p-0">
       
       <h4 className="text-[#8A9A86] text-xs tracking-[0.2em] uppercase mb-4">
@@ -33,7 +37,6 @@ export default function PassQrCode({ nomInvite }: PassQrCodeProps) {
         Présentez ce QR Code à l'entrée du domaine le jour J.
       </p>
 
-      {/* AJOUT DE print:hidden ICI POUR CACHER LE BOUTON SUR LE PDF */}
       <button 
         onClick={() => window.print()}
         className="print:hidden mt-6 text-xs text-white bg-[#8A9A86] px-5 py-2.5 rounded-full hover:bg-[#788874] transition-colors shadow-sm"
