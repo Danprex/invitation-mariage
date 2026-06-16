@@ -171,7 +171,7 @@ export default function Home() {
             Une question ? Apportez votre soutien :
           </p>
           <a href="tel:+24100000000" className="text-xl md:text-2xl font-serif text-[#FDFBF7] hover:text-[#C15B3D] transition-colors">
-            +241 00 00 00 00
+            +241 62 66 61 21 (Usher) & +241 66 77 18 91 (Sabrina)
           </a>
         </div>
 
